@@ -1,0 +1,24 @@
+<link rel="stylesheet" type="text/css" href="/css/header.css">
+
+<header>
+    <a href="/">
+        <h2> FaceBook</h2>
+    </a>
+    
+    <ul>
+        <%if(locals.user){%>
+            <p>Hey <a href="/users/profile/<%=user.id%>"><%=user.name%></a> </p>
+            <li>
+                <a href="/users/sign-out">Sign Out</a>
+            </li>
+        <%}else{%>
+            <li>
+                <a href="/users/sign-in">Sign In</a>
+            </li>
+            <li>
+                <a href="/users/sign-Up">Sign Up</a>
+            </li>
+        <%}%>
+    </ul>
+
+</header>

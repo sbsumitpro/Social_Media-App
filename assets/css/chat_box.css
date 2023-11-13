@@ -1,0 +1,74 @@
+
+.user-chat-box{
+    position:fixed;
+    bottom: 10px;
+    right: 10px;
+    height: 350px;
+    width: 300px;
+    border: 1px dashed grey;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 1px 1px 5px 4px lightgray;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-message-list{
+    flex-basis: 80%;
+    list-style: none;
+    padding: 10px;
+    overflow: scroll;
+    background-color: white;
+}
+
+.other-message{
+    text-align: left;
+    padding: 5px;
+    margin: 15px 0px;
+}
+
+.other-message span{
+    padding: 10px;
+    color: blue;
+    background-color: chartreuse;
+}
+
+.self-message{
+    text-align: right;
+    padding: 5px;
+    margin: 15px 0px;
+}
+
+.self-message span{
+    padding: 10px;
+    color: brown;
+    background-color: darksalmon;
+}
+
+.self-message sub, .other-message sub{
+    margin: 10px 0px;
+    color:lightgray;
+    display: block;
+}
+
+.chat-message-input-container{
+    flex-basis: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.chat-message-input-container input{
+    height: 35%;
+    width: 80%;
+    padding: 3px;
+    background-color: aqua;
+}
+
+#send-message{
+    height: 52%;
+    width: 20%;
+    color: white;
+    background-color: tomato;
+}

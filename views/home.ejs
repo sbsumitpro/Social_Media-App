@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/chat_box.css">
+
+<div id="body-container">
+    <section id="feed-posts">
+        <% if(locals.user){%>
+            <h4>Post</h4>
+        <form action="posts/create" id="new-post-form" method="POST">
+            <textarea name="content" id="" cols="30" rows="3" placeholder="type here" required></textarea>
+            <input type="submit" value="Post">
+        </form>
+        <% } %>
+        <br>
+        <div class="post-container">
+            <% for (post of listOfPosts){%>
+                <%- include('_post') -%>
+            
+            <%}%>
+        </div>
+    </section>
+    
+    <section id="user-friends">
+        <h4>Friends</h4>
+        <% for (u of all_users){ %>
+            <p>
+                <a href="users/profile/<%=u.id%>"> <%= u.name %></a>
+            </p>
+        <% } %>
+    </section>
+</div>
+
+<%- include("chat_box");%>
+
+<script src="/js/home_posts.js"></script>
+<script src="/js/toggle_likes.js"></script>
+<script>
+    $(".toggle-like-btn").each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self)
+    })
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+<%if(locals.user){%>
+    <script >
+        new ChatEngine(".user-chat-box", "<%= locals.user.email%>")
+    </script>
+<%}%>
