@@ -17,6 +17,7 @@ const sassMiddleware = require("node-sass-middleware")
 const flash = require("connect-flash")
 const customFlashMware = require("./config/middleware")
 const env = require("./config/environment")
+require("dotenv").config();
 
 
 // setup chat server to be used with socket.io
@@ -54,7 +55,7 @@ app.use(session({
         maxAge: (1000*60*30)
     },
     store:  MongoStore.create({
-        mongoUrl:"mongodb://localhost/manual_authentication",  // new way to setup MongoDB
+        mongoUrl:process.env.MONGO_URI,  // new way to setup MongoDB
         autoRemoved :"disabled"
     })
 }))
