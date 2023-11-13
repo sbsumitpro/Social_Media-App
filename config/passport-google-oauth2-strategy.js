@@ -7,7 +7,7 @@ const env = require("../config/environment")
 passport.use(new googleStrategy({
     clientID: env.google_client_id,
     clientSecret: env.google_client_secret,
-    callbackURL: env.google_callback_url
+    callbackURL: "https://social-media-app-0mjf.onrender.com/users/auth/google/callback"
     },
     async (accessToken, refreshToken, profile, done)=>{
         try{
