@@ -74,7 +74,7 @@ module.exports.signUp = (req,res)=>{
         return res.render("/users/profile")
     }
     return res.render("user_sign_up",{
-        title:"Codeial | Sign Up"
+        title:"FaceBook-App | Sign Up"
     })
 }
 
@@ -83,7 +83,7 @@ module.exports.signIn = (req,res)=>{
         return res.redirect("/users/profile")
     }
     return res.render("user_sign_in",{
-        title:"Codeial | Sign In"
+        title:"FaceBook-App | Sign In"
     })
 }
 
