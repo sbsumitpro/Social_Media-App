@@ -1,8 +1,9 @@
+require("dotenv").config()
 const express = require("express");
 const cookieParser = require("cookie-parser")
 const ejsLayouts = require("express-ejs-layouts")
 const bodyParser = require("body-parser")
-const port = 7000
+const port = process.env.PORT;
 const db = require("./config/mongoose")
 const routes = require("./routes/router")
 const app = express()
