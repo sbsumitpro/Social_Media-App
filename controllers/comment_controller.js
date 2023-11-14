@@ -20,15 +20,15 @@ module.exports.create = async(req, res)=>{
             comment = await comment.populate("user","name email")
             // commentsMailer.newComment(comment);
 
-            const job = queue.create("emails", comment).save((err)=>{
-                if(err){
-                    console.log("Error in sending the job to the queue"); 
-                    return;
-                }
+            // const job = queue.create("emails", comment).save((err)=>{
+            //     if(err){
+            //         console.log("Error in sending the job to the queue"); 
+            //         return;
+            //     }
 
-                console.log("Job enqued",job.data);
-                return
-            })
+            //     console.log("Job enqued",job.data);
+            //     return
+            // })
 
             req.flash('success',"Comment added.")
             res.redirect("/")
